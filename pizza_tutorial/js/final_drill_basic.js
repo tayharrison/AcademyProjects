@@ -38,34 +38,6 @@ function getReceipt() {
 	getMeat(runningTotal,text1); // All three of these variables will be passed on to each function
 };
 		
-	text1 = ""; // These initialize as empty strings but get passed from  
-	text2 = ""; // function to function, growing line by line into a full receipt
-	var runningTotal = 0;
-	var sizeTotal = 0;
-	var sizeArray = document.getElementsByClassName("size");
-	for (var i = 0; i < sizeArray.length; i++) {
-		if (sizeArray[i].checked) {
-			var selectedSize = sizeArray[i].value;
-			text1 = text1+selectedSize+"<br>";
-		}
-	}
-	if (selectedSize === "Personal Pizza") {
-		sizeTotal = 6;
-		text2 = text2+sizeTotal+"<br>";
-	} else if (selectedSize === "Medium Pizza") {
-		sizeTotal = 10;
-		text2 = text2+sizeTotal+"<br>";
-	} else if (selectedSize === "Large Pizza") {
-		sizeTotal = 14;
-		text2 = text2+sizeTotal+"<br>";
-	} else if (selectedSize === "Extra Large Pizza") {
-		sizeTotal = 16;
-		text2 = text2+sizeTotal+"<br>";
-	}
-	runningTotal = sizeTotal;
-	getMeat(runningTotal,text1,text2); // All three of these variables will be passed on to each function
-};	
-
 // With both the meat and veggie functions each item in the array will be
 // 1 dollar but the first is going to be free so we can count the total
 // of items in their array and subtract 1 to get the total item cost
