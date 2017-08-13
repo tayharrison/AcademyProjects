@@ -37,46 +37,31 @@ function getReceipt() {
 	console.log("subtotal: $"+runningTotal+".00");
 	getMeat(runningTotal,text1); // All three of these variables will be passed on to each function
 };
-		
-// With both the meat and veggie functions each item in the array will be
-// 1 dollar but the first is going to be free so we can count the total
-// of items in their array and subtract 1 to get the total item cost
-//
-// Now we can add the item cost to our running total to get the new
-// running total and then pass this new running total to the next function
-// Just keep up this process until we've added all items to the running total
-function getMeat(runningTotal,text1,text2) {
-	var runningTotal = runningTotal;
-	var meatTotal = 0;
-	var selectedMeat = [];
-	var meatArray = document.getElementsByClassName("meats");
-	for (var j = 0; j < meatArray.length; j++) {
-		if (meatArray[j].checked) {
-			selectedMeat.push(meatArray[j].value);
-		}
-	}
-	var meatCount = selectedMeat.length;
-	if (meatCount > 1) {
-		meatTotal = (meatCount - 1);
-	} else {
-		meatTotal = 0;
-	}
-	runningTotal = (runningTotal + meatTotal);
-	for (var j = 0; j < selectedMeat.length; j++) {
-			text1 = text1+selectedMeat[j]+"<br>";
-			if (meatCount <= 1) {
-				text2 = text2 + 0 + "<br>";
-				meatCount = meatCount - 1;
-			} else if (meatCount == 2) {
-				text2 = text2 + 1 + "<br>";
-				meatCount = meatCount - 1;
-			} else {
-				text2 = text2 + 1 + "<br>";
-				meatCount = meatCount - 1;
+function getMeat(runningTotal,text1) {
+		var meatTotal = 0;
+		var selectedMeat = [];
+		var meatArray = document.getElementsByClassName("meats");
+		for (var j = 0; j < meatArray.length; j++) {
+			if (meatArray[j].checked) {
+				selectedMeat.push(meatArray[j].value);
+				console.log("selected meat item: ("+meatArray[j].value+")");
+				text1 = text1+meatArray[j].value+"<br>";
 			}
-	}
-	getVeggie(runningTotal,text1,text2);
-};
+		}
+		var meatCount = selectedMeat.length;
+		if (meatCount > 1) {
+			meatTotal = (meatCount - 1);
+		} else {
+			meatTotal = 0;
+		}
+		runningTotal = (runningTotal + meatTotal);
+		console.log("total selected meat items: "+meatCount);
+		console.log(meatCount+" meat - 1 free meat = "+"$"+meatTotal+".00");
+		console.log("meat text1: "+text1);
+		console.log("Purchase Total: "+"$"+runningTotal+".00");
+		document.getElementById("showText").innerHTML=text1;
+		document.getElementById("totalPrice").innerHTML = "</h3>Total: <strong>$"+runningTotal+".00"+"</strong></h3>";
+};	
 
 function getVeggie(runningTotal,text1,text2) {
 	var veggieTotal = 0;
@@ -161,8 +146,3 @@ function getCrust(runningTotal,text1,text2) {
 	document.getElementById("totalPrice2").innerHTML = "</h3>$"+runningTotal+".00"+"</h3>";
 };
 
-// Clears
-function clearAll() {
-	document.getElementById("frmMenu").reset();
-	document.getElementById("cart").style.opacity=0;
-};
