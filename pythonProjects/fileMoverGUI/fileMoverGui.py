@@ -34,15 +34,16 @@ def load_gui(self):
     self.entry_transfer_to = ttk.Entry(self.master, width=50, font=('Arial', 10))
     self.entry_transfer_to.grid(row=4, column=0, columnspan=4,  padx=(25, 0), pady=(10, 0), sticky=N+W)
 
-    # Create and place the Browse buttons, that will look for a directory on the user's computer
-    self.btn_browse_from = ttk.Button(self.master, width=10, height=1, bg='LIGHTGOLDENRODYELLOW', text='Browse', command=lambda: transfer_recent_func.browse_folder_from(self))
+     # Create and place the Browse buttons, that will look for a directory on the user's computer
+    self.btn_browse_from = ttk.Button(self.master, width=10, height=1, bg='LIGHTGOLDENRODYELLOW', text='Browse', command=lambda: fileMoverGuifunc.browse_folder_from(self))
     self.btn_browse_from.grid(row=2, column=4, padx=(25, 0), pady=(7, 0), sticky=N+W)
-    self.btn_browse_to = ttk.Button(self.master, width=10, height=1, bg='LIGHTGOLDENRODYELLOW', text='Browse',command=lambda: transfer_recent_func.browse_folder_to(self))
+    self.btn_browse_to = ttk.Button(self.master, width=10, height=1, bg='LIGHTGOLDENRODYELLOW', text='Browse',command=lambda: fileMoverGuifunc.browse_folder_to(self))
     self.btn_browse_to.grid(row=4, column=4, padx=(25, 0), pady=(7, 0), sticky=N+W)
 
     # Create and place the Run button, that will execute the file check and transfer
-    self.btn_run = ttk.Button(self.master,width=8, height=2, bg='LIGHTGOLDENRODYELLOW', text='Run', command=lambda: transfer_recent_func.run_file_transfer(self))
+    self.btn_run = ttk.Button(self.master,width=8, height=2, bg='LIGHTGOLDENRODYELLOW', text='Run', command=lambda: fileMoverGuifunc.run_file_transfer(self))
     self.btn_run.grid(row=5, column=3, rowspan = 2, padx=(0, 0), pady=(12, 10))
+
 
    
 
