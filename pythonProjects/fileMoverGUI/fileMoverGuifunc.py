@@ -71,7 +71,6 @@ def run_file_transfer(self):
             if lastMod >= twentyFourHoursAgo:
                 dest_file = dest + '\\' + f
                 shutil.copy(src_file, dest_file)
-        update_last_run_time(self,currentTime)
         messagebox.showinfo("File Transfer Complete","Success")
     else:
         if src == dest:
